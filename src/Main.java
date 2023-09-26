@@ -132,6 +132,85 @@ public class Main {
             NPanel.repaint();
         });
 
+        remove_btn.addActionListener(e -> {
+            if (btn_num == 1) {
+                if (line != null) {
+                    Canvas.remove(line);
+                    line = null;
+                    Canvas.revalidate();
+                    Canvas.repaint();
+                }
+            }
+            if (btn_num == 2) {
+                if (rectangle != null) {
+                    Canvas.remove(rectangle);
+                    rectangle = null;
+                    Canvas.revalidate();
+                    Canvas.repaint();
+                }
+            }
+            if (btn_num == 3) {
+                if (circle != null) {
+                    Canvas.remove(circle);
+                    circle = null;
+                    Canvas.revalidate();
+                    Canvas.repaint();
+                }
+            }
+            if (btn_num == 4) {
+                if (triangle != null) {
+                    Canvas.remove(triangle);
+                    triangle = null;
+                    Canvas.revalidate();
+                    Canvas.repaint();
+                }
+            }
+            if (btn_num == 5) {
+                if (lines != null) {
+                    for (int i = 0; i < 10; i++) {
+                        Canvas.remove(lines[i]);
+                        lines[i] = null;
+                    }
+                    lines = null;
+                    Canvas.revalidate();
+                    Canvas.repaint();
+                }
+            }
+            if (btn_num == 6) {
+                if (rectangles != null) {
+                    for (int i = 0; i < 10; i++) {
+                        Canvas.remove(rectangles[i]);
+                        rectangles[i] = null;
+                    }
+                    rectangles = null;
+                    Canvas.revalidate();
+                    Canvas.repaint();
+                }
+            }
+            if (btn_num == 7) {
+                if (circles != null) {
+                    for (int i = 0; i < 10; i++) {
+                        Canvas.remove(circles[i]);
+                        circles[i] = null;
+                    }
+                    circles = null;
+                    Canvas.revalidate();
+                    Canvas.repaint();
+                }
+            }
+            if (btn_num == 8) {
+                if (triangles != null) {
+                    for (int i = 0; i < 10; i++) {
+                        Canvas.remove(triangles[i]);
+                        triangles[i] = null;
+                    }
+                    triangles = null;
+                    Canvas.revalidate();
+                    Canvas.repaint();
+                }
+            }
+        });
+
         create_btn.addActionListener(e -> {
             int x1 = (int) (Math.random() * 500);
             int x2 = (int) (Math.random() * 500);

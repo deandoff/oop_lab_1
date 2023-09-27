@@ -52,16 +52,6 @@ public class Main {
         panel.add(triangle_btn);
     }
 
-    private void SetLineMenu(JPanel panel){
-        panel.removeAll();
-        panel.add(back_btn);
-        panel.add(create_btn);
-        panel.add(move_btn);
-        panel.add(remove_btn);
-        panel.add(array_btn);
-        panel.revalidate();
-        panel.repaint();
-    }
     private void SetShapeMenu(JPanel panel){
         panel.removeAll();
         panel.add(back_btn);
@@ -88,7 +78,7 @@ public class Main {
         });
 
         line_btn.addActionListener(e -> {
-            SetLineMenu(NPanel);
+            SetShapeMenu(NPanel);
             btn_num = 1;
         });
 
@@ -207,6 +197,152 @@ public class Main {
                     triangles = null;
                     Canvas.revalidate();
                     Canvas.repaint();
+                }
+            }
+        });
+
+        move_btn.addActionListener(e -> {
+            int x1 = -50 + (int) (Math.random() * 100);
+            int y1 = -50 + (int) (Math.random() * 100);
+            if (btn_num == 1) {
+                if (line != null) {
+                    ((Line) line).Move(x1, y1);
+                    ((Line) line).Show(true);
+                    Canvas.repaint();
+                }
+            }
+            else if (btn_num == 2) {
+                if (rectangle != null) {
+                    ((Rectangle) rectangle).Move(x1, y1);
+                    ((Rectangle) rectangle).Show(true);
+                    Canvas.repaint();
+                }
+            }
+            else if (btn_num == 3) {
+                if (circle != null) {
+                    ((Circle) circle).Move(x1, y1);
+                    ((Circle) circle).Show(true);
+                    Canvas.repaint();
+                }
+            }
+            else if (btn_num == 4) {
+                if (triangle != null) {
+                    ((Triangle) triangle).Move(x1, y1);
+                    ((Triangle) triangle).Show(true);
+                    Canvas.repaint();
+                }
+            }
+            else if (btn_num == 5) {
+                if (lines != null) {
+                    for (int i = 0; i < 10; i++){
+                        lines[i].Move(x1, y1);
+                        lines[i].Show(true);
+                        Canvas.repaint();
+                    }
+                }
+            }
+            else if (btn_num == 6) {
+                if (rectangles != null) {
+                    for (int i = 0; i < 10; i++){
+                        rectangles[i].Move(x1, y1);
+                        rectangles[i].Show(true);
+                        Canvas.repaint();
+                    }
+                }
+            }
+            else if (btn_num == 7) {
+                if (circles != null) {
+                    for (int i = 0; i < 10; i++){
+                        circles[i].Move(x1, y1);
+                        circles[i].Show(true);
+                        Canvas.repaint();
+                    }
+                }
+            }
+            else if (btn_num == 8) {
+                if (triangles != null) {
+                    for (int i = 0; i < 10; i++){
+                        triangles[i].Move(x1, y1);
+                        triangles[i].Show(true);
+                        Canvas.repaint();
+                    }
+                }
+            }
+        });
+
+        csize_btn.addActionListener(e -> {
+            int x1 = -50 + (int) (Math.random() * 200);
+            int y1 = -50 + (int) (Math.random() * 200);
+            if (btn_num == 1) {
+                if (line != null) {
+                    ((Line) line).ChangeSize(x1);
+                    ((Line) line).Show(true);
+                    Canvas.revalidate();
+                    Canvas.repaint();
+                }
+            }
+            else if (btn_num == 2) {
+                if (rectangle != null) {
+                    ((Rectangle) rectangle).ChangeSize(x1, y1);
+                    ((Rectangle) rectangle).Show(true);
+                    Canvas.revalidate();
+                    Canvas.repaint();
+                }
+            }
+            else if (btn_num == 3) {
+                if (circle != null) {
+                    ((Circle) circle).ChangeRadius(x1 + 100);
+                    ((Circle) circle).Show(true);
+                    Canvas.revalidate();
+                    Canvas.repaint();
+                }
+            }
+            else if (btn_num == 4) {
+                if (triangle != null) {
+                    ((Triangle) triangle).ChangeSize(x1, y1);
+                    ((Triangle) triangle).Show(true);
+                    Canvas.revalidate();
+                    Canvas.repaint();
+                }
+            }
+            if (btn_num == 5) {
+                if (lines != null) {
+                    for (int i = 0; i < 10; i++) {
+                        lines[i].ChangeSize(x1);
+                        lines[i].Show(true);
+                        Canvas.revalidate();
+                        Canvas.repaint();
+                    }
+                }
+            }
+            else if (btn_num == 6) {
+                if (rectangles != null) {
+                    for (int i = 0; i < 10; i++) {
+                        rectangles[i].ChangeSize(x1, y1);
+                        rectangles[i].Show(true);
+                        Canvas.revalidate();
+                        Canvas.repaint();
+                    }
+                }
+            }
+            else if (btn_num == 7) {
+                if (circles != null) {
+                    for (int i = 0; i < 10; i++) {
+                        circles[i].ChangeRadius(x1 + 100);
+                        circles[i].Show(true);
+                        Canvas.revalidate();
+                        Canvas.repaint();
+                    }
+                }
+            }
+            else if (btn_num == 8) {
+                if (triangles != null) {
+                    for (int i = 0; i < 10; i++) {
+                        triangles[i].ChangeSize(x1, y1);
+                        triangles[i].Show(true);
+                        Canvas.revalidate();
+                        Canvas.repaint();
+                    }
                 }
             }
         });

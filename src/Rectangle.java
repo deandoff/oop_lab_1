@@ -3,6 +3,7 @@ import java.awt.*;
 public class Rectangle extends JPanel {
     private int x, y, w, h;
     private final Color color;
+    private boolean vision;
 
     public Rectangle(int x, int y, int w, int h, Color color) {
         setLayout(null);
@@ -22,6 +23,12 @@ public class Rectangle extends JPanel {
     public void ChangeSize(int x, int y){
         w += x;
         h += y;
+    }
+    public void Show(boolean vision) {
+        this.vision = vision;
+        setVisible(this.vision);
+        this.vision = true;
+        this.repaint();
     }
 
     protected void paintComponent(Graphics component) {

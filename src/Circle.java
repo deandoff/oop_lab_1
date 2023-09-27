@@ -5,6 +5,7 @@ import java.awt.*;
 public class Circle extends JPanel {
     private int x, y, d;
     private final Color color;
+    private boolean vision;
 
     public Circle(int x, int y, int d, Color color) {
         setLayout(null);
@@ -19,7 +20,12 @@ public class Circle extends JPanel {
         this.x += x;
         this.y += y;
     }
-
+    public void Show(boolean vision) {
+        this.vision = vision;
+        setVisible(this.vision);
+        this.vision = true;
+        this.repaint();
+    }
     public void ChangeRadius(int d) {
         this.d = d;
     }

@@ -4,6 +4,7 @@ import java.awt.*;
 public class Triangle extends JPanel {
     private int x1, x2, x3, y1, y2, y3;
     private final Color color;
+    private boolean vision;
 
     public Triangle(int x1, int x2, int x3, int y1, int y2, int y3, Color color) {
         setLayout(null);
@@ -32,7 +33,12 @@ public class Triangle extends JPanel {
         y1 -= y;
         y3 -= y;
     }
-
+    public void Show(boolean vision) {
+        this.vision = vision;
+        setVisible(this.vision);
+        this.vision = true;
+        this.repaint();
+    }
     protected void paintComponent(Graphics component){
 //        super.paintComponent(component);
         component.setColor(color);

@@ -4,6 +4,7 @@ import java.awt.*;
 public class Line extends JPanel {
     private int x1, x2, y1, y2;
     private final Color color;
+    private boolean vision;
 
     public Line(int x1, int y1, int x2, int y2, Color color) {
         setLayout(null);
@@ -23,6 +24,17 @@ public class Line extends JPanel {
         y2 += y;
     }
 
+    public void ChangeSize(int x) {
+        x2 += x;
+        y2 += x;
+    }
+
+    public void Show(boolean vision) {
+        this.vision = vision;
+        setVisible(this.vision);
+        this.vision = true;
+        this.repaint();
+    }
 
     protected void paintComponent(Graphics component){
 //        super.paintComponent(component);

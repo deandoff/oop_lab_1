@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Main {
-    private JFrame frame = new JFrame("Lab_1");
+    private final JFrame frame = new JFrame("Lab_1");
     private final JButton back_btn = new JButton("Назад"); //0
     private final JButton line_btn = new JButton("Линия"); //1
     private final JButton circle_btn = new JButton("Окружность"); //2
@@ -15,7 +15,6 @@ public class Main {
     private final JButton array_btn = new JButton("Массив"); //9
 
     private final JPanel Canvas = canvas();
-    private final JPanel NPanel = navigation_panel();
     private JPanel line = null;
     private Line[] lines = null;
     private JPanel circle = null;
@@ -32,6 +31,7 @@ public class Main {
         frame.setLayout(new BorderLayout());
         frame.setSize(1920,1080);
         frame.add(Canvas, BorderLayout.CENTER);
+        JPanel NPanel = navigation_panel();
         frame.add(NPanel, BorderLayout.SOUTH);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
@@ -275,7 +275,7 @@ public class Main {
             int y1 = -50 + (int) (Math.random() * 200);
             if (btn_num == 1) {
                 if (line != null) {
-                    ((Line) line).ChangeSize(x1);
+                    ((Line) line).ChangeSize(x1 - 50);
                     ((Line) line).Show(true);
                     Canvas.revalidate();
                     Canvas.repaint();
@@ -371,7 +371,7 @@ public class Main {
             }
             else if (btn_num == 3) {
                 if (circle == null) {
-                    circle = new Circle (x1, x2, x3, Color.green);
+                    circle = new Circle (x1, y1, x3, Color.green);
                     Canvas.add(circle, BorderLayout.CENTER);
                     Canvas.revalidate();
                 }
@@ -421,9 +421,8 @@ public class Main {
                     circles = new Circle[10];
                     for (int i=0; i<10; i++) {
                         x1 = (int) (Math.random() * 500);
-                        x2 = (int) (Math.random() * 500);
                         x3 = (int) (Math.random() * 500);
-                        circles[i] = new Circle (x1, x2, x3, Color.green);
+                        circles[i] = new Circle (x1, y1, x3, Color.green);
                         Canvas.add(circles[i], BorderLayout.CENTER);
                         Canvas.validate();
                         Canvas.repaint();

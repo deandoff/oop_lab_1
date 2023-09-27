@@ -271,8 +271,8 @@ public class Main {
         });
 
         csize_btn.addActionListener(e -> {
-            int x1 = -50 + (int) (Math.random() * 200);
-            int y1 = -50 + (int) (Math.random() * 200);
+            int x1 = -25 + (int) (Math.random() * 50);
+            int y1 = -25 + (int) (Math.random() * 50);
             if (btn_num == 1) {
                 if (line != null) {
                     ((Line) line).ChangeSize(x1 - 50);
@@ -291,7 +291,8 @@ public class Main {
             }
             else if (btn_num == 3) {
                 if (circle != null) {
-                    ((Circle) circle).ChangeRadius(x1 + 100);
+                    int r = -50 + (int) (Math.random() * 250);
+                    ((Circle) circle).ChangeRadius(r + 50);
                     ((Circle) circle).Show(true);
                     Canvas.revalidate();
                     Canvas.repaint();
@@ -328,7 +329,8 @@ public class Main {
             else if (btn_num == 7) {
                 if (circles != null) {
                     for (int i = 0; i < 10; i++) {
-                        circles[i].ChangeRadius(x1 + 100);
+                        int r = -50 + (int) (Math.random() * 250);
+                        circles[i].ChangeRadius(r + 50);
                         circles[i].Show(true);
                         Canvas.revalidate();
                         Canvas.repaint();
@@ -421,6 +423,7 @@ public class Main {
                     circles = new Circle[10];
                     for (int i=0; i<10; i++) {
                         x1 = (int) (Math.random() * 500);
+                        y1 = (int) (Math.random() * 500);
                         x3 = (int) (Math.random() * 500);
                         circles[i] = new Circle (x1, y1, x3, Color.green);
                         Canvas.add(circles[i], BorderLayout.CENTER);

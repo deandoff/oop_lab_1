@@ -18,7 +18,6 @@ public class Main {
     private JPanel line = null;
     private Line[] lines = null;
     private JPanel circle = null;
-
     private Circle[] circles = null;
     private JPanel rectangle = null;
     private Rectangle[] rectangles = null;
@@ -32,7 +31,7 @@ public class Main {
         frame.setSize(1920,1080);
         frame.add(Canvas, BorderLayout.CENTER);
         JPanel NPanel = navigation_panel();
-        frame.add(NPanel, BorderLayout.SOUTH);
+        frame.add(NPanel, BorderLayout.WEST);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
@@ -44,29 +43,42 @@ public class Main {
         return canvas;
     }
 
+    private JPanel createButton(JButton button) {
+        JPanel panel = new JPanel();
+
+        Dimension buttonSize = new Dimension(200, 50);
+        button.setPreferredSize(buttonSize);
+
+        Font font = new Font("Open Sans", Font.PLAIN, 20);
+        button.setFont(font);
+
+        panel.setLayout(new FlowLayout(FlowLayout.LEFT));
+        panel.add(button);
+        return panel;
+    }
     private void SetDefaultMenu(JPanel panel){
         panel.removeAll();
-        panel.add(line_btn);
-        panel.add(rectangle_btn);
-        panel.add(circle_btn);
-        panel.add(triangle_btn);
+        panel.add(createButton(line_btn));
+        panel.add(createButton(rectangle_btn));
+        panel.add(createButton(circle_btn));
+        panel.add(createButton(triangle_btn));
     }
 
     private void SetShapeMenu(JPanel panel){
         panel.removeAll();
-        panel.add(back_btn);
-        panel.add(create_btn);
-        panel.add(move_btn);
-        panel.add(csize_btn);
-        panel.add(remove_btn);
-        panel.add(array_btn);
+        panel.add(createButton(back_btn));
+        panel.add(createButton(create_btn));
+        panel.add(createButton(move_btn));
+        panel.add(createButton(csize_btn));
+        panel.add(createButton(remove_btn));
+        panel.add(createButton(array_btn));
         panel.revalidate();
         panel.repaint();
     }
 
     private JPanel navigation_panel() {
         JPanel NPanel = new JPanel();
-        NPanel.setLayout(new FlowLayout());
+        NPanel.setLayout(new BoxLayout(NPanel, BoxLayout.Y_AXIS));
         NPanel.setBackground(Color.lightGray);
         SetDefaultMenu(NPanel);
 

@@ -37,7 +37,6 @@ public class Triangle extends JPanel {
         this.repaint();
     }
     protected void paintComponent(Graphics component){
-//        super.paintComponent(component);
         component.setColor(color);
         component.drawPolygon(new int[] {x1, x2, x3}, new int[] {y1, y2, y3}, 3);
     }

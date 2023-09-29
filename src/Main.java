@@ -3,16 +3,16 @@ import java.awt.*;
 
 public class Main {
     private final JFrame frame = new JFrame("Lab_1");
-    private final JButton back_btn = new JButton("Назад"); //0
-    private final JButton line_btn = new JButton("Линия"); //1
-    private final JButton circle_btn = new JButton("Окружность"); //2
-    private final JButton rectangle_btn = new JButton("Прямоугольник"); //3
-    private final JButton triangle_btn = new JButton("Треугольник"); //4
-    private final JButton create_btn = new JButton("Создать"); //5
-    private final JButton move_btn = new JButton("Передвинуть"); //6
-    private final JButton remove_btn = new JButton("Удалить объект"); //7
-    private final JButton csize_btn = new JButton("Изменить размер"); //8
-    private final JButton array_btn = new JButton("Массив"); //9
+    private final JButton back_btn = new JButton("Назад");
+    private final JButton line_btn = new JButton("Линия");
+    private final JButton circle_btn = new JButton("Окружность");
+    private final JButton rectangle_btn = new JButton("Прямоугольник");
+    private final JButton triangle_btn = new JButton("Треугольник");
+    private final JButton create_btn = new JButton("Создать");
+    private final JButton move_btn = new JButton("Передвинуть");
+    private final JButton remove_btn = new JButton("Удалить объект");
+    private final JButton csize_btn = new JButton("Изменить размер");
+    private final JButton array_btn = new JButton("Массив");
 
     private final JPanel Canvas = canvas();
     private JPanel line = null;

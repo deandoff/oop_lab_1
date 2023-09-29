@@ -28,7 +28,6 @@ public class Circle extends JPanel {
     }
 
     protected void paintComponent(Graphics component) {
-//        super.paintComponent(component);
         component.setColor(color);
         component.drawOval(x-d/2, y-d/2, d, d);
     }

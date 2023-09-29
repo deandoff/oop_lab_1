@@ -34,7 +34,6 @@ public class Line extends JPanel {
     }
 
     protected void paintComponent(Graphics component){
-//        super.paintComponent(component);
         component.setColor(color);
         component.drawLine(x1, y1, x2, y2);
     }

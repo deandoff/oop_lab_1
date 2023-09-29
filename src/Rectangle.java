@@ -29,7 +29,6 @@ public class Rectangle extends JPanel {
     }
 
     protected void paintComponent(Graphics component) {
-//        super.paintComponent(component);
         component.setColor(color);
         component.drawRect(x, y, w, h);
     }

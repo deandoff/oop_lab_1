@@ -25,12 +25,14 @@ public class Line extends JPanel {
 
     public void ChangeSize(int c) {
         double length = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
-        int dx = (int) (c * (x2 - x1) / length);
-        int dy = (int) (c * (y2 - y1) / length);
-        x1 -= dx;
-        y1 -= dy;
-        x2 += dx;
-        y2 += dy;
+        if (length != 0) {
+            int dx = (int) (c * (x2 - x1) / length);
+            int dy = (int) (c * (y2 - y1) / length);
+            x1 -= dx;
+            y1 -= dy;
+            x2 += dx;
+            y2 += dy;
+        }
     }
 
     public void Show(boolean vision) {

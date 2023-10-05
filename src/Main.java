@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Main {
-    private final JFrame frame = new JFrame("Lab_2");
+    private final JFrame frame = new JFrame("Lab_1");
     private final JButton back_btn = new JButton("Назад");
     private final JButton line_btn = new JButton("Линия");
     private final JButton circle_btn = new JButton("Окружность");
@@ -13,7 +13,6 @@ public class Main {
     private final JButton remove_btn = new JButton("Удалить объект");
     private final JButton csize_btn = new JButton("Изменить размер");
     private final JButton array_btn = new JButton("Массив");
-    private final JButton ring_btn = new JButton("Кольцо");
 
     private final JPanel Canvas = canvas();
     private JPanel line = null;
@@ -24,8 +23,6 @@ public class Main {
     private Rectangle[] rectangles = null;
     private JPanel triangle = null;
     private Triangle[] triangles = null;
-    private JPanel ring = null;
-    private Ring[] rings = null;
 
     private int btn_num;
 
@@ -65,7 +62,6 @@ public class Main {
         panel.add(createButton(rectangle_btn));
         panel.add(createButton(circle_btn));
         panel.add(createButton(triangle_btn));
-        panel.add(createButton(ring_btn));
     }
 
     private void SetShapeMenu(JPanel panel){
@@ -113,11 +109,6 @@ public class Main {
             btn_num = 4;
         });
 
-        ring_btn.addActionListener(e -> {
-            SetShapeMenu(NPanel);
-            btn_num = 9;
-        });
-
         array_btn.addActionListener(e -> {
             if (btn_num == 1){
                     JOptionPane.showMessageDialog(frame, "Выбран массив линий");
@@ -138,11 +129,6 @@ public class Main {
                     JOptionPane.showMessageDialog(frame, "Выбран массив треугольников");
                     NPanel.remove(array_btn);
                     btn_num = 8;
-            }
-            else if (btn_num == 9) {
-                JOptionPane.showMessageDialog(frame, "Выбран массив колец");
-                NPanel.remove(array_btn);
-                btn_num = 10;
             }
             NPanel.revalidate();
             NPanel.repaint();
@@ -225,25 +211,6 @@ public class Main {
                     Canvas.repaint();
                 }
             }
-            if (btn_num == 9) {
-                if (ring != null) {
-                    Canvas.remove(ring);
-                    ring = null;
-                    Canvas.revalidate();
-                    Canvas.repaint();
-                }
-            }
-            if (btn_num == 10) {
-                if (rings != null) {
-                    for (int i = 0; i < 10; i++) {
-                        Canvas.remove(rings[i]);
-                        rings[i] = null;
-                    }
-                    rings = null;
-                    Canvas.revalidate();
-                    Canvas.repaint();
-                }
-            }
         });
 
         move_btn.addActionListener(e -> {
@@ -309,22 +276,6 @@ public class Main {
                     for (int i = 0; i < 10; i++){
                         triangles[i].Move(x1, y1);
                         triangles[i].Show(true);
-                        Canvas.repaint();
-                    }
-                }
-            }
-            else if (btn_num == 9) {
-                if (ring != null) {
-                    ((Ring) ring).Move(x1, y1);
-                    ((Ring) ring).Show(true);
-                    Canvas.repaint();
-                }
-            }
-            else if (btn_num == 10) {
-                if (rings != null) {
-                    for (int i = 0; i < 10; i++){
-                        rings[i].Move(x1, y1);
-                        rings[i].Show(true);
                         Canvas.repaint();
                     }
                 }
@@ -408,27 +359,6 @@ public class Main {
                     }
                 }
             }
-            else if (btn_num == 9) {
-                if (ring != null) {
-                    int r = -50 + (int) (Math.random() * 250);
-                    ((Ring) ring).ChangeRadius(r + 50);
-                    ((Ring) ring).Show(true);
-                    Canvas.revalidate();
-                    Canvas.repaint();
-                }
-            }
-            else if (btn_num == 10) {
-                if (rings != null) {
-                    for (int i = 0; i < 10; i++) {
-                        int r = -50 + (int) (Math.random() * 250);
-                        rings[i].ChangeRadius(r + 50);
-                        rings[i].Show(true);
-                        Canvas.revalidate();
-                        Canvas.repaint();
-                    }
-                }
-            }
-
         });
 
         create_btn.addActionListener(e -> {
@@ -514,6 +444,7 @@ public class Main {
                     }
                     Canvas.revalidate();
                 }
+
             }
             else if (btn_num == 8) {
                 if (triangles == null) {
@@ -527,28 +458,6 @@ public class Main {
                         y3 = (int) (Math.random() * 500);
                         triangles[i] = new Triangle(x1, x2, x3, y1, y2, y3, Color.red);
                         Canvas.add(triangles[i], BorderLayout.CENTER);
-                        Canvas.validate();
-                        Canvas.repaint();
-                    }
-                    Canvas.revalidate();
-                }
-            }
-            else if (btn_num == 9) {
-                if (ring == null) {
-                    ring= new Ring (x1, y1, x3, Color.black);
-                    Canvas.add(ring, BorderLayout.CENTER);
-                    Canvas.revalidate();
-                }
-            }
-            else if (btn_num == 10) {
-                if (rings == null) {
-                    rings = new Ring[10];
-                    for (int i=0; i<10; i++) {
-                        x1 = (int) (Math.random() * 500);
-                        y1 = (int) (Math.random() * 500);
-                        x3 = (int) (Math.random() * 500);
-                        rings[i] = new Ring (x1, y1, x3, Color.black);
-                        Canvas.add(rings[i], BorderLayout.CENTER);
                         Canvas.validate();
                         Canvas.repaint();
                     }

@@ -2,26 +2,30 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Line extends JPanel {
-    private final Point point_1 = new Point();
-    private final Point point_2 = new Point();
+    private int x1, x2, y1, y2;
     private final Color color;
 
     public Line(int x1, int y1, int x2, int y2, Color color) {
         setLayout(null);
         setOpaque(false);
-        point_1.Set(x1,y1);
-        point_2.Set(x2,y2);
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
         this.color = color;
-        System.out.println("Line created");
+        this.repaint();
     }
 
     public void Move(int x, int y) {
-        point_1.Set(point_1.GetX()+x, point_1.GetY()+y);
-        point_2.Set(point_2.GetX()+x, point_2.GetY()+y);
+        x1 += x;
+        y1 += y;
+        x2 += x;
+        y2 += y;
     }
 
     public void ChangeSize(int c) {
-        point_2.Set(point_2.GetX()+c, point_2.GetY()+c);
+        x2 += c;
+        y2 += c;
     }
 
     public void Show(boolean vision) {
@@ -31,7 +35,7 @@ public class Line extends JPanel {
 
     protected void paintComponent(Graphics component){
         component.setColor(color);
-        component.drawLine(point_1.GetX(), point_1.GetY(), point_2.GetX(), point_2.GetY());
+        component.drawLine(x1, y1, x2, y2);
     }
 
 }
